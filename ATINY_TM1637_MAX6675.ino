@@ -7,7 +7,7 @@
     Rev 1.0 | 8 Dic 2025
 */
 
-#include "tm1637.h" // modulo para el display 7 segmentos TM1637
+#include "tm1637.c" // modulo para el display 7 segmentos TM1637
 
 // Pines MAX6675
 #define SCKtc 3   //pin2
@@ -50,18 +50,20 @@ void loop()
     // proceso de conversion a digitos
     digito = temperatura % 10; // obtener la unidad
     acarreo = (temperatura / 10); // guardar el resto del numero
-    if(digito!=0){
-        TM1637_display_digit(TM1637_SET_ADR_03H, digito); // escribir digito en display en la ultima posicion
-    }else{
-        TM1637_display_segments(TM1637_SET_ADR_03H, 0); // borrar el digito
-    }
+    TM1637_display_digit(TM1637_SET_ADR_03H, digito); // escribir digito en display en la ultima posicion
     digito = acarreo % 10; // obtener la decena
     acarreo = (acarreo / 10); // guardar el resto del numero
     TM1637_display_digit(TM1637_SET_ADR_02H, digito); // escribir digito en display en la tercera posicion
     digito = acarreo % 10; // obtener la centena
-    acarreo = (acarreo / 10); 
-    TM1637_display_digit(TM1637_SET_ADR_01H, digito); // escribir digito en display en la segunda posicion
-    TM1637_display_digit(TM1637_SET_ADR_00H, acarreo); // escribir digito en display en la primera posicion
-
+    acarreo = (acarreo / 10);
+    if( digito != 0 )
+        TM1637_display_digit(TM1637_SET_ADR_01H, digito); // escribir digito en display en la segunda posicion
+    else
+        TM1637_display_segments(TM1637_SET_ADR_01H, 0); // borrar el digito
+    if( acarreo != 0 )
+        TM1637_display_digit(TM1637_SET_ADR_00H, acarreo); // escribir digito en display en la primera posicion
+    else
+        TM1637_display_segments(TM1637_SET_ADR_00H, 0); // borrar el digito
+    
     delay(500);
 }
