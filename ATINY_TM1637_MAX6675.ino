@@ -4,7 +4,7 @@
     Esta probado en un ATtiny13A, pero es compatible con toda la familia ATtiny
     Uso la libreria: github.com/lpodkalicki/attiny-tm1637-library
     Creado por: github.com/nicopache97
-    Rev 1.0 | 8 Dic 2025
+    Rev 1.0 | 19 Dic 2025
 */
 
 #include "tm1637.c" // modulo para el display 7 segmentos TM1637
@@ -64,6 +64,6 @@ void loop()
         TM1637_display_digit(TM1637_SET_ADR_00H, acarreo); // escribir digito en display en la primera posicion
     else
         TM1637_display_segments(TM1637_SET_ADR_00H, 0); // borrar el digito
-    
-    delay(500);
+
+    delay(50);
 }
