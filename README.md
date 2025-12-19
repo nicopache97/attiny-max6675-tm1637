@@ -13,6 +13,24 @@ El programa lee la temperatura ambiente a través del sensor MAX6675 y la muestr
 *   **Visualización**: Display de 7 segmentos con controlador TM1637.
 *   **Fuente de Alimentación**: fuente de 3.3v a 5V (probado con baterias Litio).
 
+## Multimedia
+
+[![Vista Frontal](IMG/head-on.jpeg)](https://youtube.com/shorts/Pgy9UlmGMoo?si=cWsnmPa6zCTDzAS2)
+*Haz clic en la imagen para ver el video en YouTube*
+
+### Circuito y Medición
+| Circuito | Medición de Corriente | Prueba Messi |
+| :---: | :---: | :---: |
+| ![Circuito](IMG/circuit.jpeg) | ![Medición de Corriente](IMG/current-measurement.jpeg) | ![Prueba Messi](IMG/messi-test.png) |
+
+## Consumo de Energía
+
+El consumo de corriente varía según la temperatura mostrada (cantidad de dígitos encendidos):
+
+*   **T < 100°C** (2 dígitos): ~4.2mA
+*   **T > 100°C** (3 dígitos): ~6.3mA
+*   **T > 1000°C** (4 dígitos): ~8.4mA
+
 ## Conexiones
 
 ### MAX6675
@@ -47,6 +65,18 @@ La configuración de pines para el display TM1637 se encuentra definida en la li
 3.  Selecciona la placa **ATtiny13** y la frecuencia de reloj adecuada (ej. 9.6 MHz interno o 1.2 MHz, verificar timing si es crítico).
 4.  Compila y sube el código utilizando un programador ISP (como Arduino as ISP o USBasp).
 
+## Diseños 3D
+
+Se incluyen los archivos necesarios para la fabricación de la carcasa:
+
+### Archivos de Fabricación (STEP)
+*   [Caja Inferior](3d-pieces/caja%20inferior.step)
+*   [Caja Termómetro](3d-pieces/caja%20termometro%205.step)
+
+### Archivos Editables (FreeCAD V1.1)
+*   [Caja Inferior (Editable)](3d-pieces/caja%20inferior.20251208-170326.FCBak)
+*   [Caja Termómetro (Editable)](3d-pieces/caja%20termometro.20251208-155530.FCBak)
+
 ## Autor
 
 *   **Nicolas Pacheco** 
@@ -56,4 +86,8 @@ La configuración de pines para el display TM1637 se encuentra definida en la li
 
 ## Versión
 
-*   Rev 1.0 | 8 Dic 2025
+*   Rev 1.0a | 19 Dic 2025
+
+## Demo
+
+![Messi Aprove](IMG/messi-aprove.gif)
